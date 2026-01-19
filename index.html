@@ -75,12 +75,12 @@
     <button id="generateBtn">Generar</button>
     <button id="copyBtn">Copiar</button>
     <div id="generatedID">---</div>
-    <button id="shareBtn">GeneradorPaleta</button> <!-- Cambié el texto aquí -->
+    <button id="shareBtn">GeneradorPaleta</button>
     <button onclick="logout()">Cerrar sesión</button>
 </div>
 
 <script>
-    // Si ya hay sesión guardada, mostrar generador directamente
+    // Mostrar generador si ya hay sesión guardada
     if(localStorage.getItem("loggedIn") === "true") {
         document.getElementById("loginBox").style.display = "none";
         document.getElementById("generatorBox").style.display = "block";
@@ -93,7 +93,7 @@
         const error = document.getElementById("error");
 
         if(user === "Omar" && pass === "Omarprogramador") {
-            localStorage.setItem("loggedIn", "true"); // guardar sesión
+            localStorage.setItem("loggedIn", "true");
             document.getElementById("loginBox").style.display = "none";
             document.getElementById("generatorBox").style.display = "block";
         } else {
@@ -112,6 +112,7 @@
     const generateBtn = document.getElementById('generateBtn');
     const copyBtn = document.getElementById('copyBtn');
     const generatedID = document.getElementById('generatedID');
+    const shareBtn = document.getElementById('shareBtn');
 
     function generateID() {
         const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -139,14 +140,12 @@
     });
 
     // Botón GeneradorPaleta
-    const shareBtn = document.getElementById('shareBtn');
     shareBtn.addEventListener('click', () => {
-        const url = "https://GeneradorPapeleta/"; // enlace que se copiará
+        const url = "https://TUUSUARIO.github.io/generador-id/"; // <--- reemplaza con tu enlace real
         navigator.clipboard.writeText(url)
             .then(() => alert("Enlace copiado al portapapeles: " + url))
             .catch(err => alert("Error al copiar enlace: " + err));
     });
-
 </script>
 
 </body>
